@@ -1,5 +1,5 @@
 """
-proto 파일을 Python용으로 컴파일하는 스크립트
+Script to compile proto files for Python
 """
 import subprocess
 import sys
@@ -9,10 +9,10 @@ def main():
     proto_dir = "proto"
     output_dir = "generated"
     
-    # 출력 디렉토리 생성
+    # Create output directory
     os.makedirs(output_dir, exist_ok=True)
     
-    # grSim 관련 proto 파일 컴파일
+    # Compile grSim-related proto files
     proto_files = [
         "grSim_Commands.proto",
         "grSim_Replacement.proto",
@@ -35,7 +35,7 @@ def main():
             print(f"Error: {result.stderr}")
             sys.exit(1)
     
-    # __init__.py 생성
+    # Create __init__.py
     init_file = os.path.join(output_dir, "__init__.py")
     with open(init_file, "w") as f:
         f.write("")
