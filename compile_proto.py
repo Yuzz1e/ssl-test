@@ -1,5 +1,5 @@
 """
-protoファイルをPython用にコンパイルするスクリプト
+proto 파일을 Python용으로 컴파일하는 스크립트
 """
 import subprocess
 import sys
@@ -9,14 +9,17 @@ def main():
     proto_dir = "proto"
     output_dir = "generated"
     
-    # 出力ディレクトリを作成
+    # 출력 디렉토리 생성
     os.makedirs(output_dir, exist_ok=True)
     
-    # grSim関連のprotoファイルをコンパイル
+    # grSim 관련 proto 파일 컴파일
     proto_files = [
         "grSim_Commands.proto",
         "grSim_Replacement.proto",
         "grSim_Packet.proto",
+        "ssl_vision_detection.proto",
+        "ssl_vision_geometry.proto",
+        "ssl_vision_wrapper.proto",
     ]
     
     for proto_file in proto_files:
@@ -32,7 +35,7 @@ def main():
             print(f"Error: {result.stderr}")
             sys.exit(1)
     
-    # __init__.pyを作成
+    # __init__.py 생성
     init_file = os.path.join(output_dir, "__init__.py")
     with open(init_file, "w") as f:
         f.write("")
